@@ -1,15 +1,18 @@
+import javax.lang.model.element.Name;
+import javax.swing.text.PlainDocument;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Game {
-    List<Player> registeredPlayers = new ArrayList<>();
+    HashMap<Player, Player> registeredPlayers = new HashMap<>();
 
     public void register(Player player) {
-        registeredPlayers.add(player);
+        registeredPlayers.put(player, player);
     }
 
     public Player findByName(String name) {
-        for (Player player : registeredPlayers) {
+        for (Player player : registeredPlayers.keySet()) {
             if (player.getName().equals(name)) {
                 return player;
             }
